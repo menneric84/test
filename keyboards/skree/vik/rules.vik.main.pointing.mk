@@ -68,6 +68,25 @@ ifeq ($(strip $(VIK_PMW3360)), yes)
 	OPT_DEFS += -DVIK_POINTING_LEFT
 endif
 
+ifeq ($(strip $(VIK_PROCYON)), yes)
+	ifeq ($(strip $(SPLIT_KEYBOARD)), yes)
+		ifeq ($(strip $(VIK_BUILD_LEFT)), yes)
+			POINTING_DEVICE_ENABLE := yes
+			DIGITIZER_ENABLE := yes
+			DIGITIZER_DRIVER := maxtouch
+			POINTING_DEVICE_DRIVER := digitizer
+		endif
+	else
+		POINTING_DEVICE_ENABLE := yes
+		DIGITIZER_ENABLE := yes
+    DIGITIZER_DRIVER := maxtouch
+		POINTING_DEVICE_DRIVER := digitizer
+	endif
+	VIK_POINTING_LEFT := yes
+	OPT_DEFS += -DVIK_PROCYON
+	OPT_DEFS += -DVIK_POINTING_LEFT
+endif
+
 ifeq ($(strip $(VIK_TRACKPOINT)), yes)
    ###### OVERALL FINDINGS SO FAR
    # AVR interrupt mode doesn't work for RP2040, as it requires PAL_MODE_OUTPUT_OPENDRAIN, which isn't provided for RP2040

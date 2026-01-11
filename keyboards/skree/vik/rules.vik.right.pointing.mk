@@ -71,3 +71,21 @@ ifeq ($(strip $(VIK_PMW3360_RIGHT)), yes)
 	OPT_DEFS += -DVIK_PMW3360_RIGHT
 	OPT_DEFS += -DVIK_POINTING_RIGHT
 endif
+
+ifeq ($(strip $(VIK_PROCYON_RIGHT)), yes)
+  ifeq ($(strip $(VIK_POINTING_LEFT)), no)
+		POINTING_DEVICE_ENABLE := yes
+		DIGITIZER_ENABLE := yes
+		DIGITIZER_DRIVER := maxtouch
+		POINTING_DEVICE_DRIVER := digitizer
+	endif
+	ifeq ($(strip $(VIK_BUILD_RIGHT)), yes)
+		POINTING_DEVICE_ENABLE := yes
+		DIGITIZER_ENABLE := yes
+    DIGITIZER_DRIVER := maxtouch
+		POINTING_DEVICE_DRIVER := digitizer
+	endif
+	VIK_POINTING_RIGHT := yes
+	OPT_DEFS += -DVIK_PROCYON_RIGHT
+	OPT_DEFS += -DVIK_POINTING_RIGHT
+endif

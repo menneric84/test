@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "keyboards/peamk_wired/vik/config.vik.pre.h"
+#include "keyboards/cosmos/skree/vik/config.vik.pre.h"
 
 #define EE_HANDS
 
@@ -26,4 +26,13 @@
 #define SERIAL_USART_TX_PIN GP0
 #define SERIAL_USART_RX_PIN GP1
 
-#include "keyboards/peamk_wired/vik/config.vik.post.h"
+#define SPI_DRIVER SPID1
+#define SPI_SCK_PIN GP14
+#define SPI_MISO_PIN GP12
+#define SPI_MOSI_PIN GP15
+
+#define POINTING_DEVICE_CS_PIN GP13
+// #define ROTATIONAL_TRANSFORM_ANGLE 0 // Optional: Rotates the trackball
+// #define POINTING_DEVICE_INVERT_X // Optional: Inverts trackball X
+
+#include "keyboards/cosmos/skree/vik/config.vik.post.h"

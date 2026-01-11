@@ -14,6 +14,7 @@
  * VIK_EC11_EVQWGD001
  * VIK_CIRQUE (really just a raw cirque)
  * VIK_TRACKPOINT
+ * VIK_PROCYON
  *
  * Pin config:
  * VIK_SPI_DRIVER
@@ -209,4 +210,8 @@
     #define CIRQUE_PINNACLE_SPI_CS_PIN VIK_SPI_CS
     #define CIRQUE_PINNACLE_TAP_ENABLE
     #define POINTING_DEVICE_TASK_THROTTLE_MS 5
+#endif
+
+#ifdef VIK_PROCYON
+    #define I2C1_CLOCK_SPEED 1000000
 #endif
